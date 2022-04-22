@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MaterialTheme() {
+            Md3CompatTheme {
                 Scaffold(
                     topBar = {
                         LargeTopAppBar(
@@ -27,11 +27,7 @@ class MainActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier.padding(it)
                     ) {
-                        basicColorSchemeList().forEach {
-                            ColorSchemeIcon(colorScheme = it, checked = false) {
-
-                            }
-                        }
+                        ThemeChooser()
                     }
                 }
             }

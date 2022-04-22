@@ -23,11 +23,11 @@ private val basicColorScheme = listOf(
  */
 @Composable
 fun basicColorSchemeList(
-    light: Boolean = !isSystemInDarkTheme()
+    darkTheme: Boolean = isSystemInDarkTheme()
 ): List<ColorScheme> {
     return remember {
         basicColorScheme.map {
-            it.asColorScheme(light)
+            it.asColorScheme(darkTheme)
         }
     }
 }
@@ -37,7 +37,7 @@ fun basicColorSchemeList(
  */
 @Composable
 fun dynamicColorSchemeList(
-    light: Boolean = !isSystemInDarkTheme()
+    darkTheme: Boolean = isSystemInDarkTheme()
 ): List<ColorScheme> {
     val context = LocalContext.current
     return remember(context) {
@@ -51,12 +51,12 @@ fun dynamicColorSchemeList(
             val tertiary = colors.tertiaryColor?.toArgb()
 
             mutableListOf<ColorScheme>().apply {
-                add(primary.asColorScheme(light))
+                add(primary.asColorScheme(darkTheme))
                 secondary?.let {
-                    add(it.asColorScheme(light))
+                    add(it.asColorScheme(darkTheme))
                 }
                 tertiary?.let {
-                    add(it.asColorScheme(light))
+                    add(it.asColorScheme(darkTheme))
                 }
             }
         } else {
@@ -65,10 +65,10 @@ fun dynamicColorSchemeList(
     }
 }
 
-private fun Int.asColorScheme(light: Boolean) = if(light) {
-    Scheme.light(this).toColorScheme()
-} else {
+private fun Int.asColorScheme(darkTheme: Boolean) = if(darkTheme) {
     Scheme.dark(this).toColorScheme()
+} else {
+    Scheme.light(this).toColorScheme()
 }
 
 // Convert internal scheme to Compose ColorScheme

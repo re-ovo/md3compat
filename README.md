@@ -23,7 +23,7 @@ dependencyResolutionManagement {
 2. Add dependencies to `build.gradle`
 // TODO
 
-## Basic Usage
+## Basic Usage (Low level API)
 ```kotlin
 @Composable
 fun BasicAPIExample() {
@@ -33,4 +33,14 @@ fun BasicAPIExample() {
     // Get all basic color schemes
     val basicColorScheme: List<ColorScheme> = basicColorScheme(isSystemInDarkTheme())
 }
+```
+## Advanced Usage
+```kotlin
+// Use this as your theme
+Md3CompatTheme {
+    // Content
+}
+
+// Use this as a color picker
+ThemeChooser()
 ```
