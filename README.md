@@ -20,8 +20,10 @@ dependencyResolutionManagement {
 }
 ```
 
-2. Add dependencies to `build.gradle`
-// TODO
+2. Add dependencies to `build.gradle` [![](https://jitpack.io/v/re-ovo/md3compat.svg)](https://jitpack.io/#re-ovo/md3compat)
+```groovy
+implementation 'com.github.re-ovo:md3compat:<latest>'
+```
 
 ## Basic Usage (Low level API)
 ```kotlin

@@ -19,9 +19,9 @@ dependencyResolutionManagement {
 }
 ```
 
-2. 添加依赖 
+2. 添加依赖 [![](https://jitpack.io/v/re-ovo/md3compat.svg)](https://jitpack.io/#re-ovo/md3compat)
 ```groovy
-
+implementation 'com.github.re-ovo:md3compat:<版本号>'
 ```
 
 ## 基础API 
