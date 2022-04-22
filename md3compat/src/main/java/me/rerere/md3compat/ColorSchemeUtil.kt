@@ -1,50 +1,74 @@
 package me.rerere.md3compat
 
 import android.app.WallpaperManager
-import android.content.Context
 import android.os.Build
-import androidx.annotation.RequiresApi
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import scheme.Scheme
 
-@Throws(IllegalStateException::class)
-fun Context.loadColorScheme(): List<CombinedColorScheme> {
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
-        val wallpaperManager = WallpaperManager.getInstance(this)
-        val colors = wallpaperManager.getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
-        require(colors != null) { "Wallpaper colors are null" }
+// basic color scheme
+private val basicColorScheme = listOf(
+    0x5576b2,
+    0x35845d,
+    0x756eb1,
+    0xa16b1c
+)
 
-        val primary = colors.primaryColor.toArgb()
-        val secondary = colors.secondaryColor?.toArgb()
-        val tertiary = colors.tertiaryColor?.toArgb()
-
-        mutableListOf<CombinedColorScheme>().apply {
-            add(CombinedColorScheme.of(primary))
-            secondary?.let {
-                add(CombinedColorScheme.of(it))
-            }
-            tertiary?.let {
-                add(CombinedColorScheme.of(it))
-            }
+/**
+ * Get all basic color schemes.
+ */
+@Composable
+fun basicColorSchemeList(
+    light: Boolean = !isSystemInDarkTheme()
+): List<ColorScheme> {
+    return remember {
+        basicColorScheme.map {
+            it.asColorScheme(light)
         }
-    } else {
-        throw IllegalStateException("This method requires API level 24")
     }
 }
 
-// Represents a color scheme with light mode and dark mode colors
-data class CombinedColorScheme(
-    val light: ColorScheme,
-    val dark: ColorScheme
-) {
-    companion object {
-        @JvmStatic
-        internal fun of(argb: Int) = CombinedColorScheme(
-            light = Scheme.light(argb).toColorScheme(),
-            dark = Scheme.dark(argb).toColorScheme()
-        )
+/**
+ * Get all dynamic color schemes based on the current wallpaper.
+ */
+@Composable
+fun dynamicColorSchemeList(
+    light: Boolean = !isSystemInDarkTheme()
+): List<ColorScheme> {
+    val context = LocalContext.current
+    return remember(context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            val wallpaperManager = WallpaperManager.getInstance(context)
+            val colors = wallpaperManager.getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
+            require(colors != null) { "Wallpaper colors are null" }
+
+            val primary = colors.primaryColor.toArgb()
+            val secondary = colors.secondaryColor?.toArgb()
+            val tertiary = colors.tertiaryColor?.toArgb()
+
+            mutableListOf<ColorScheme>().apply {
+                add(primary.asColorScheme(light))
+                secondary?.let {
+                    add(it.asColorScheme(light))
+                }
+                tertiary?.let {
+                    add(it.asColorScheme(light))
+                }
+            }
+        } else {
+            emptyList()
+        }
     }
+}
+
+private fun Int.asColorScheme(light: Boolean) = if(light) {
+    Scheme.light(this).toColorScheme()
+} else {
+    Scheme.dark(this).toColorScheme()
 }
 
 // Convert internal scheme to Compose ColorScheme
