@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dynamic_color">动态颜色</string>
+    <string name="basic_color">基础颜色</string>
+</resources>
