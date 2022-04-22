@@ -1,0 +1,6 @@
+[submodule "material_util"]
+	path = material_util
+	url = git@github.com:material-foundation/material-color-utilities.git
+[submodule "app/src/main/java/md_util"]
+	path = app/src/main/java/md_util
+	url = git@github.com:material-foundation/material-color-utilities.git
