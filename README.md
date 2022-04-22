@@ -1,5 +1,6 @@
 # MD3Compat
-Backward compatibility support for [Material You](https://m3.material.io) for Jetpack Compose projects
+Backward compatibility support for [Material You](https://m3.material.io) for Jetpack Compose.
+The project is based on [material-color-utilities](https://github.com/material-foundation/material-color-utilities)
 [中文说明在这里](README_CN.md)
 
 ## Screenshots
@@ -22,14 +23,14 @@ dependencyResolutionManagement {
 2. Add dependencies to `build.gradle`
 // TODO
 
-## Basic API
+## Basic Usage
 ```kotlin
 @Composable
 fun BasicAPIExample() {
     // Get all dynamic color schemes based on the wallpaper (Require Android 8.1+)
-    val dynamicColorScheme = dynamicColorScheme(isSystemInDarkTheme())
+    val dynamicColorScheme: List<ColorScheme> = dynamicColorScheme(isSystemInDarkTheme())
     
     // Get all basic color schemes
-    val basicColorScheme = basicColorScheme(isSystemInDarkTheme())
+    val basicColorScheme: List<ColorScheme> = basicColorScheme(isSystemInDarkTheme())
 }
 ```
