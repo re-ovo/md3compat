@@ -10,6 +10,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import me.rerere.compose_setting.preference.rememberBooleanPreference
 import me.rerere.compose_setting.preference.rememberIntPreference
@@ -46,7 +47,7 @@ fun ThemeChooser(
                     dynamicTab = true
                 }
             ) {
-                Text(text = "动态颜色")
+                Text(text = stringResource(R.string.dynamic_color))
             }
             TabButton(
                 modifier = Modifier.weight(1f),
@@ -55,7 +56,7 @@ fun ThemeChooser(
                     dynamicTab = false
                 }
             ) {
-                Text(text = "基础颜色")
+                Text(text = stringResource(R.string.basic_color))
             }
         }
         Crossfade(dynamicTab) {

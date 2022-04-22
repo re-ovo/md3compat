@@ -1,0 +1,4 @@
+<resources>
+    <string name="dynamic_color">Dynamic Color</string>
+    <string name="basic_color">Basic Color</string>
+</resources>

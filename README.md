@@ -4,7 +4,7 @@ The project is based on [material-color-utilities](https://github.com/material-f
 [中文说明在这里](README_CN.md)
 
 ## Screenshots
-
+![](arts/screenshot.png)
 
 ## Import to your project
 1. Add `jitpack.io` to repositories in `settings.gradle`
