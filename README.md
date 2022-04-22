@@ -2,6 +2,7 @@
 Backward compatibility support for [Material You](https://m3.material.io) for Jetpack Compose.
 Since Google currently only provides dynamic theme support for MaterialYou on Android 12+, but many users haven't upgraded to it, I made this library to provide MaterialYou support for Android 8.1 and above
 The project is based on [material-color-utilities](https://github.com/material-foundation/material-color-utilities)
+
 [中文说明在这里](README_CN.md)
 
 ## Screenshots
