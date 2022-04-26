@@ -25,7 +25,7 @@ private val basicColorScheme = listOf(
 fun basicColorSchemeList(
     darkTheme: Boolean = isSystemInDarkTheme()
 ): List<ColorScheme> {
-    return remember {
+    return remember(darkTheme) {
         basicColorScheme.map {
             it.asColorScheme(darkTheme)
         }
@@ -40,7 +40,7 @@ fun dynamicColorSchemeList(
     darkTheme: Boolean = isSystemInDarkTheme()
 ): List<ColorScheme> {
     val context = LocalContext.current
-    return remember(context) {
+    return remember(context, darkTheme) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             val wallpaperManager = WallpaperManager.getInstance(context)
             val colors = wallpaperManager.getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
@@ -60,7 +60,9 @@ fun dynamicColorSchemeList(
                 }
             }
         } else {
-            emptyList()
+            basicColorScheme.map {
+                it.asColorScheme(darkTheme)
+            }
         }
     }
 }
