@@ -19,11 +19,11 @@ fun Md3CompatTheme(
 ) {
     val dynamic by rememberBooleanPreference(
         key = "md3compat.dynamic",
-        defaultValue = true
+        default = true
     )
     val themeIndex by rememberIntPreference(
         key = "md3compat.themeIndex",
-        defaultValue = 0
+        default = 0
     )
     val colorScheme = if(dynamic) {
         dynamicColorSchemeList(darkTheme)[themeIndex]

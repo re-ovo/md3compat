@@ -21,11 +21,11 @@ fun ThemeChooser(
 ) {
     var dynamic by rememberBooleanPreference(
         key = "md3compat.dynamic",
-        defaultValue = true
+        default = true
     )
     var themeIndex by rememberIntPreference(
         key = "md3compat.themeIndex",
-        defaultValue = 0
+        default = 0
     )
     var dynamicTab by remember(dynamic) {
         mutableStateOf(dynamic)
