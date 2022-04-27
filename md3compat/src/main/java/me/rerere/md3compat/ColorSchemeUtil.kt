@@ -46,16 +46,15 @@ fun dynamicColorSchemeList(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             val wallpaperManager = WallpaperManager.getInstance(context)
             val colors = wallpaperManager.getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
-                ?: return basicColorScheme.map {
-                    it.asColorScheme(darkTheme)
-                }
 
-            val primary = colors.primaryColor.toArgb()
-            val secondary = colors.secondaryColor?.toArgb()
-            val tertiary = colors.tertiaryColor?.toArgb()
+            val primary = colors?.primaryColor?.toArgb()
+            val secondary = colors?.secondaryColor?.toArgb()
+            val tertiary = colors?.tertiaryColor?.toArgb()
 
             mutableListOf<ColorScheme>().apply {
-                add(primary.asColorScheme(darkTheme))
+                primary?.let {
+                    add(it.asColorScheme(darkTheme))
+                }
                 secondary?.let {
                     add(it.asColorScheme(darkTheme))
                 }
