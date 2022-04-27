@@ -46,7 +46,9 @@ fun dynamicColorSchemeList(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             val wallpaperManager = WallpaperManager.getInstance(context)
             val colors = wallpaperManager.getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
-            require(colors != null) { "Wallpaper colors are null" }
+                ?: return basicColorScheme.map {
+                    it.asColorScheme(darkTheme)
+                }
 
             val primary = colors.primaryColor.toArgb()
             val secondary = colors.secondaryColor?.toArgb()
