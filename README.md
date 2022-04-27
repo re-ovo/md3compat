@@ -48,3 +48,5 @@ Md3CompatTheme {
 // Use this as a color picker
 ThemeChooser()
 ```
+
+It was based on compose-setting, so you might need to call `initComposeSetting()` in the `Application.onCreate()`
