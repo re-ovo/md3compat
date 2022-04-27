@@ -25,13 +25,14 @@ fun Md3CompatTheme(
         key = "md3compat.themeIndex",
         default = 0
     )
-    val colorScheme = if(dynamic) {
-        dynamicColorSchemeList(darkTheme)[themeIndex]
+    val colorScheme = if (dynamic) {
+        dynamicColorSchemeList(darkTheme).getOrNull(themeIndex)
     } else {
-        basicColorSchemeList(darkTheme)[themeIndex]
+        basicColorSchemeList(darkTheme).getOrNull(themeIndex)
     }
+
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = colorScheme ?: basicColorSchemeList().first(),
         shapes = shapes,
         typography = typography,
         content = content
