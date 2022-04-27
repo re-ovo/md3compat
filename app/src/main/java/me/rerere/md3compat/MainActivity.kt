@@ -3,11 +3,10 @@ package me.rerere.md3compat
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -25,9 +24,21 @@ class MainActivity : ComponentActivity() {
                     }
                 ) {
                     Column(
-                        modifier = Modifier.padding(it)
+                        modifier = Modifier.padding(it),
+                        verticalArrangement = Arrangement.spacedBy(16.dp)
                     ) {
                         ThemeChooser()
+
+                        Surface(
+                            tonalElevation = 8.dp,
+                            onClick = {
+
+                            }
+                        ) {
+                            Box(modifier = Modifier.size(100.dp).padding(16.dp)) {
+                                Text(text = "ces")
+                            }
+                        }
                     }
                 }
             }
