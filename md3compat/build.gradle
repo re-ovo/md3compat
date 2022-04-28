@@ -37,6 +37,6 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.compose.material3:material3:1.0.0-alpha10'
-    api 'com.github.re-ovo:compose-setting:1.0.2'
+    implementation "androidx.compose.material3:material3:$md3_version"
+    api 'com.github.re-ovo:compose-setting:1.0.5'
 }
