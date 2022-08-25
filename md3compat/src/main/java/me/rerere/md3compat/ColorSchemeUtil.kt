@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import palettes.CorePalette
 import scheme.Scheme
 
 // basic color scheme
@@ -71,13 +72,13 @@ fun dynamicColorSchemeList(
 }
 
 private fun Int.asColorScheme(darkTheme: Boolean) = if(darkTheme) {
-    Scheme.dark(this).toColorScheme()
+    Scheme.dark(this).toColorScheme(this)
 } else {
-    Scheme.light(this).toColorScheme()
+    Scheme.light(this).toColorScheme(this)
 }
 
 // Convert internal scheme to Compose ColorScheme
-private fun Scheme.toColorScheme(): ColorScheme = ColorScheme(
+private fun Scheme.toColorScheme(seed: Int): ColorScheme = ColorScheme(
     primary = Color(this.primary),
     onPrimary = Color(this.onPrimary),
     primaryContainer = Color(this.primaryContainer),
@@ -105,4 +106,6 @@ private fun Scheme.toColorScheme(): ColorScheme = ColorScheme(
     errorContainer = Color(this.errorContainer),
     onErrorContainer = Color(this.onErrorContainer),
     outline = Color(this.outline),
+    outlineVariant = Color(CorePalette.of(seed).n2.tone(30)),
+    scrim = Color(CorePalette.of(seed).n1.tone(0))
 )

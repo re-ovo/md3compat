@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace 'me.rerere.md3compat'
-    compileSdk 31
+    compileSdk 33
 
     defaultConfig {
         minSdk 21
-        targetSdk 31
+        targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -32,11 +32,11 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion compiler_version
     }
 }
 
 dependencies {
     implementation "androidx.compose.material3:material3:$md3_version"
-    api 'com.github.re-ovo:compose-setting:1.0.5'
+    api 'com.github.re-ovo:compose-setting:1.0.13'
 }
