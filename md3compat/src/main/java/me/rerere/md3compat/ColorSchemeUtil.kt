@@ -106,6 +106,6 @@ private fun Scheme.toColorScheme(seed: Int): ColorScheme = ColorScheme(
     errorContainer = Color(this.errorContainer),
     onErrorContainer = Color(this.onErrorContainer),
     outline = Color(this.outline),
-    outlineVariant = Color(CorePalette.of(seed).n2.tone(30)),
+    outlineVariant = Color(CorePalette.of(seed).n2.tone(90)),
     scrim = Color(CorePalette.of(seed).n1.tone(0))
 )
