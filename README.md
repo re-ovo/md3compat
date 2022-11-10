@@ -49,4 +49,4 @@ Md3CompatTheme {
 ThemeChooser()
 ```
 
-> It was based on compose-setting, so you might need to call `initComposeSetting()` in the `Application.onCreate()`
+> It was based on [compose-setting](https://github.com/re-ovo/compose-setting), so you might need to call `initComposeSetting()` in the `Application.onCreate()`
