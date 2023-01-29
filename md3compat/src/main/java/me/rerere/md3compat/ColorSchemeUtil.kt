@@ -4,14 +4,12 @@ import android.app.WallpaperManager
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import palettes.CorePalette
-import scheme.Scheme
+import me.rerere.md3compat.colorutil.palettes.CorePalette
+import me.rerere.md3compat.colorutil.scheme.Scheme
 
 // basic color scheme
 private val basicColorScheme = listOf(
@@ -46,7 +44,7 @@ fun dynamicColorSchemeList(
     return remember(context, darkTheme) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
             val wallpaperManager = WallpaperManager.getInstance(context)
-            val colors = wallpaperManager.getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
+            val colors = wallpaperManager.getWallpaperColors(WallpaperManager.FLAG_SYSTEM) ?: wallpaperManager.getWallpaperColors(WallpaperManager.FLAG_LOCK)
 
             val primary = colors?.primaryColor?.toArgb()
             val secondary = colors?.secondaryColor?.toArgb()
