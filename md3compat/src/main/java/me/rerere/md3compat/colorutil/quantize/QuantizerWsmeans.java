@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package quantize;
+package me.rerere.md3compat.colorutil.quantize;
 
 import static java.lang.Math.min;
 

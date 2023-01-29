@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package score;
+package me.rerere.md3compat.colorutil.score;
 
-import hct.Cam16;
-import utils.ColorUtils;
-import utils.MathUtils;
+import me.rerere.md3compat.colorutil.hct.Cam16;
+import me.rerere.md3compat.colorutil.utils.ColorUtils;
+import me.rerere.md3compat.colorutil.utils.MathUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;

@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package palettes;
+package me.rerere.md3compat.colorutil.palettes;
 
-import hct.Hct;
+import me.rerere.md3compat.colorutil.hct.Hct;
 import java.util.HashMap;
 import java.util.Map;
 

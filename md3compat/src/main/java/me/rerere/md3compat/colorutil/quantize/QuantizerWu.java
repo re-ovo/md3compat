@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package quantize;
+package me.rerere.md3compat.colorutil.quantize;
 
-import utils.ColorUtils;
+import me.rerere.md3compat.colorutil.utils.ColorUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-package quantize;
+package me.rerere.md3compat.colorutil.quantize;
 
-/** An interface to allow use of different color spaces by quantizers. */
-public interface PointProvider {
-  public double[] fromInt(int argb);
+import java.util.Map;
 
-  public int toInt(double[] point);
+/** Represents result of a quantizer run */
+public final class QuantizerResult {
+  public final Map<Integer, Integer> colorToCount;
 
-  public double distance(double[] a, double[] b);
+  QuantizerResult(Map<Integer, Integer> colorToCount) {
+    this.colorToCount = colorToCount;
+  }
 }

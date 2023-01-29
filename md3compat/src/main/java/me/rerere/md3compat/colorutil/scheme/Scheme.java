@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package scheme;
+package me.rerere.md3compat.colorutil.scheme;
 
-import palettes.CorePalette;
+import me.rerere.md3compat.colorutil.palettes.CorePalette;
 
 /**
  * Represents a Material color scheme, a mapping of color roles to colors.

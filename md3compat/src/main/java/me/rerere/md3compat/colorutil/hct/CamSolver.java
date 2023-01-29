@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package hct;
+package me.rerere.md3compat.colorutil.hct;
 
 import static java.lang.Math.max;
 
-import utils.ColorUtils;
-import utils.MathUtils;
+import me.rerere.md3compat.colorutil.utils.ColorUtils;
+import me.rerere.md3compat.colorutil.utils.MathUtils;
 import java.util.ArrayList;
 
 /** A class that solves the HCT equation. */

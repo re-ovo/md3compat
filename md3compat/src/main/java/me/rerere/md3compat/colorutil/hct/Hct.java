@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package hct;
+package me.rerere.md3compat.colorutil.hct;
 
-import utils.ColorUtils;
+import me.rerere.md3compat.colorutil.utils.ColorUtils;
 
 /**
  * A color system built using CAM16 hue and chroma, and L* from L*a*b*.

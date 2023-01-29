@@ -14,8 +14,13 @@
  * limitations under the License.
  */
 
-package quantize;
+package me.rerere.md3compat.colorutil.quantize;
 
-interface Quantizer {
-  public QuantizerResult quantize(int[] pixels, int maxColors);
+/** An interface to allow use of different color spaces by quantizers. */
+public interface PointProvider {
+  public double[] fromInt(int argb);
+
+  public int toInt(double[] point);
+
+  public double distance(double[] a, double[] b);
 }

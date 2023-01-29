@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package hct;
+package me.rerere.md3compat.colorutil.hct;
 
-import utils.ColorUtils;
-import utils.MathUtils;
+import me.rerere.md3compat.colorutil.utils.ColorUtils;
+import me.rerere.md3compat.colorutil.utils.MathUtils;
 
 /**
  * In traditional color spaces, a color can be identified solely by the observer's measurement of

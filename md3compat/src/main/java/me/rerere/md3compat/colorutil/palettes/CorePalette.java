@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package palettes;
+package me.rerere.md3compat.colorutil.palettes;
 
 import static java.lang.Math.max;
 
-import hct.Hct;
+import me.rerere.md3compat.colorutil.hct.Hct;
 
 /**
  * An intermediate concept between the key color for a UI theme, and a full color scheme. 5 sets of
